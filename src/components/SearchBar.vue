@@ -1,12 +1,34 @@
 <template>
-  <input class= "search" type="text" placeholder="Search..."/>
+
+  <input 
+    v-model="query"
+    class= "search" 
+    type="text" 
+    placeholder="Search..."
+    @keypress="fetchWeather"
+    />
 </template>
 
 <script>
 
 export default {
-    name: 'SearchBar'
+    name: 'SearchBar',
+    emits: ['query'],
+    data(){
+        return{
+            query: ''
+        }
+    },
+    methods: {
+        fetchWeather(e) {
+            if(e.key == "Enter"){
+                this.$emit('result',this.query);
+            }
+        }
+    }
 }
+
+
 </script>
 
 <style>
