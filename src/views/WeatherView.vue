@@ -1,12 +1,11 @@
 <template>
   <h1>I am weather!</h1>
- 
 <div>
   <p>{{query}}</p>
   <NumberDisplay/>
 </div>
 <div>
-  <SearchBar  @result="setQuery"/>
+  <SearchBar  @result="setQuery" />
   </div>
 </template>
 
@@ -20,9 +19,9 @@ export default defineComponent({
 
     data: function() {
         return{
-          API_KEY: '27d87126e47057406c28faede276cea5',
+          API_KEY: '5f6dd7d7a5e746e8f9f02a55f6139296',
           BASE_URL: 'http://api.openweathermap.org/data/2.5/',
-          weather: {},
+          weather: {} as any,
           query: '' as string
         }
     },
@@ -32,9 +31,21 @@ export default defineComponent({
     },
 
     methods:{
-      setQuery(q:string) : void{
+      
+      setQuery(q:string){
         this.query = q;
+        this.weather = this.getWeather().then(this.setWeather)
+        
+      },
+
+      async setWeather(values:any){
+          this.weather = values
+      },
+      async getWeather(){
+            const fetched = await fetch(`${this.BASE_URL}weather?q=${this.query}&APPID=${this.API_KEY}`); 
+            return await fetched.json()
       }
+
     }
 
 })
