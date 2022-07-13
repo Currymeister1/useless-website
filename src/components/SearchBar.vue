@@ -36,7 +36,7 @@ export default {
 .search {
     border-radius: 7px 0px 7px 0px;
     width: 250px;
-    padding: 6px;
+    padding: 10px;
     background-color: rgb(255, 255, 255, 0.50);
     border: none;
     transition-delay: 0.4s;

@@ -1,13 +1,17 @@
 <template>
     <div class="display">
-        17° C
+        {{value}}
     </div>
 
 </template>
 
 <script>
 export default {
-    name: 'NumberDisplay'
+    name: 'NumberDisplay',
+
+    props: {
+        value: String,
+    }
 }
 </script>
 
