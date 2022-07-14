@@ -20,7 +20,9 @@
 
 <script>
 export default {
-
+    beforeCreate(){
+        this.$emit('state','');
+    }
 }
 </script>
 
