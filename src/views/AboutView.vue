@@ -3,9 +3,10 @@
         <h1>About</h1>
             <p>
                 If you ever been to the metro station Karlsplatz, 
-                <br/>you have probably seen the numbers on different facts (e.g. how many people are alive right now). 
-                <br/>Well this website isn't really about display some numeric facts. But the idea is kinda the same. <br/>
-                I wanted to build an all in one app that contains useful information. For now, it's just weather and train schedule. 
+                <br/>you probably have seen the numbers on different facts (e.g. how many people are alive right now). 
+                <br/>Well this website isn't really about displaying some numeric facts.<br/>
+                I wanted to build an all in one app that contains useful information. <br/>
+                For now, it's just weather and train schedule. 
             </p>
 
             <h2>Used APIs</h2>

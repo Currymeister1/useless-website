@@ -35,7 +35,7 @@ export default({
   font-family: 'montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #000000;
   font-size: 30px;
   background-image: url('assets/about.jpg');
   background-position: center;
