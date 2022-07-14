@@ -41,6 +41,7 @@ export default {
     border: none;
     transition-delay: 0.4s;
     box-shadow: 2.5px 3.5px rgb(0,0,0,0.25);
+    text-align: center;
 }
 
 .search:focus{

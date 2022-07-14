@@ -71,12 +71,12 @@ export default defineComponent ({
           if(this.weather.main){
               switch (this.weather.weather[0].main){
                 case 'Rain':
-                  this.$emit('state', 'Rain');
+                  this.$emit('state', 'rainy');
                   break;
-                case 'Cloud':
-                  this.$emit('state', 'Cloud');
+                case 'Clouds':
+                  this.$emit('state', 'cloudy');
                   break;
-                default:
+                default:  
                   this.$emit('state','clear');    
               }
           }
@@ -84,8 +84,11 @@ export default defineComponent ({
               this.$emit('state','clear');
           }
       }
-
+    },
+    beforeCreate(){
+      this.$emit('state','clear');
     }
+
 
 })
 </script>
@@ -93,8 +96,8 @@ export default defineComponent ({
 <style>
 
 .weather{
-  color:white;
-  position: absolute;
+  color: rgb(31, 29, 29);
+  position: relative;
   top: 40%;
   left: 50%;
   margin-right: -50%;
@@ -103,12 +106,12 @@ export default defineComponent ({
 
 
 .name{
-  color: white;
+  color: rgb(31, 29, 29);
   font-style: italic;
 }
 
 .number-disply{
-  color: white
+  color: rgb(31, 29, 29)
 
 }
 
@@ -118,7 +121,7 @@ export default defineComponent ({
 }
 
 .additional-info{
-  color:white;
+    color: rgb(31, 29, 29);
   font-style: italic;
 }
 

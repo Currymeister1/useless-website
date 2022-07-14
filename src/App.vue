@@ -21,7 +21,6 @@ export default({
  },
   methods: {
       setState(value){
-        console.log(11)
         this.state = value
       }
   },
@@ -31,12 +30,9 @@ export default({
 
 <style>
 
-
-
-
 #app {
   text-align: center;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
