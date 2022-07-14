@@ -3,9 +3,17 @@
 </template>
 
 <script lang="ts">
+
 export default {
-    name: 'TrainTimeView'
+  
+    name: 'TrainTimeView',
+    methods: {
+      loger(){
+        console.log(1)
+      }
+    }
 }
+
 </script>
 
 <style>

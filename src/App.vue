@@ -1,16 +1,37 @@
-  <template>
+<template>
+  <div id="app" :class="this.state">
+    <nav>
+      <router-link to="/">About</router-link> 
+      <router-link to="/weather">Weather</router-link>
+      <router-link to="/train">Train</router-link>
+    </nav>
+    <router-view @state="setState"/>
 
-  <nav>
-    <router-link to="/">About</router-link> 
-    <router-link to="/weather">Weather</router-link>
-    <router-link to="/train">Train</router-link>
-  </nav>
-  <router-view/>
-  
-
+  </div>  
 </template>
 
+<script>
+
+export default({
+ name:'app',
+ data(){
+    return{
+      state: ''
+    }
+ },
+  methods: {
+      setState(value){
+        console.log(11)
+        this.state = value
+      }
+  },
+})
+</script>
+
+
 <style>
+
+
 
 
 #app {
@@ -19,8 +40,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  font-size: 17px;
-  min-height: 100vh;
+  font-size: 30px;
+  background-image: url('assets/about.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+
+#app.clear{
+    background-image: url('./assets/states/clear.png');
+}
+
+#app.cloudy{
+    background-image: url('./assets/states/cloudy.jpg');
+}
+
+#app.rainy{
+    background-image: url('./assets/states/rainy.jpg');
 }
 
 .container {
@@ -33,8 +69,6 @@
 
 body{
   margin: 0px;
-  background-size: cover;
-  background-image: url('assets/about.jpg');
 }
 
 nav {

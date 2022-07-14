@@ -23,6 +23,7 @@ export default {
     width: 250px;
     border-style: solid;
     border-radius: 15px;
+    border-color: rgb(0, 0, 0,0.75);
     padding: 20px;
     font-size: 100px;
     background-color: rgb(255,255,255,0.35);
