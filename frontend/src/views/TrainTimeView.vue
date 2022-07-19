@@ -8,7 +8,7 @@
 <script lang="ts">
 import SearchBar from '../components/SearchBar.vue';
 import NumberDisplay from '../components/NumberDisplay.vue';
-import { defineComponent } from '@vue/runtime-core';
+import { defineComponent } from 'vue'; 
 import Divas from '../assets/stops/wienerlinien-ogd-haltestellen.json';
 
 export default defineComponent({
@@ -18,7 +18,7 @@ export default defineComponent({
           val: Number,
           divas: Divas,
           query: '' as string,
-          BASE_URL: 'https://www.wienerlinien.at/ogd_realtime/'
+          BASE_URL: 'http://localhost:3000/'
         }
     },
     components: {
@@ -34,7 +34,8 @@ export default defineComponent({
       },  
 
       async getStopInfo(diva:any){
-        const response = await fetch(`${this.BASE_URL}monitor?DIVA=${diva}`)
+        console.log(`${this.BASE_URL}?diva=${diva}`)
+        const response = await fetch(`${this.BASE_URL}?diva=${diva}`)
         return await response.json()
 
       }
