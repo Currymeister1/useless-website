@@ -1,24 +1,10 @@
 # useless-website
 
-## Project setup
-```
-npm install
-```
+Just a website to play with some APIs and Vue.js. There are two views: one for the weather and other one for the public transport timing.  
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## To launch this webapp
+1. Go into the frontend directory and run this command: ` npm run serve`. 
+2. Go into the backend directory and run this command: `node App.js`. 
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
