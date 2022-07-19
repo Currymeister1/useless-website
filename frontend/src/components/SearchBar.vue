@@ -1,5 +1,5 @@
 <template>
-
+    
   <input 
     v-model="query"
     class= "search" 

@@ -55,6 +55,13 @@ export default({
     background-image: url('./assets/states/rainy.jpg');
 }
 
+#app.ptBusCity{
+    background-image: url('./assets/states/bus.webp');
+}
+#app.ptMetro{
+  background-image: url('./assets/states/metro.jpg');
+}
+
 .container {
   position: fixed;
   top:0;
