@@ -5,7 +5,7 @@
     class= "search" 
     type="text" 
     placeholder="Search..."
-    @keypress="fetchWeather"
+    @keypress="sendWord"
     />
 </template>
 
@@ -20,7 +20,7 @@ export default {
         }
     },
     methods: {
-        fetchWeather(e) {
+        sendWord(e) {
             if(e.key == "Enter"){
                 this.$emit('result',this.query);
             }
