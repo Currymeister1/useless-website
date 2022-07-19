@@ -67,8 +67,11 @@ export default defineComponent({
       displayInfo(){
         if(this.query != '' && this.line != '' && this.direction != ''){
           for(let i = 0; i < this.stopInfo.data.monitors.length;i++){
-            if(this.stopInfo.data.monitors[i].lines[0].name == this.line){              
-              if(this.stopInfo.data.monitors[i].lines[0].towards.toUpperCase() == this.direction.toUpperCase()){
+            if(this.stopInfo.data.monitors[i].lines[0].name == this.line){          
+              console.log(this.stopInfo.data.monitors[i].lines[0].towards.toUpperCase())
+
+              if(this.stopInfo.data.monitors[i].lines[0].towards.toUpperCase().trim() == this.direction.toUpperCase().trim()){
+                console.log('Testing')
                 this.type = this.stopInfo.data.monitors[i].lines[0].type
                 this.$emit('state',this.type)
                 this.time = this.stopInfo.data.monitors[i].lines[0].departures.departure[0].departureTime.countdown
