@@ -62,6 +62,10 @@ export default({
   background-image: url('./assets/states/metro.jpg');
 }
 
+#app.ptTram{
+  background-image: url('./assets/states/tram.jpg');
+}
+
 .container {
   position: fixed;
   top:0;
