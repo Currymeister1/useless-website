@@ -7,7 +7,6 @@
   
     <div class="searching">
         <div class="station">
-        
         <SearchBar @result="setQuery"/>
         </div>
 
@@ -56,6 +55,7 @@ export default defineComponent({
     methods: {
       async setQuery(q:string){
         this.query = q;
+        console.log(this.query)
         const diva = this.divas.find(d => d.PlatformText === q)?.DIVA;
         this.stopInfo = await this.getStopInfo(diva);
         console.log(this.stopInfo)
@@ -68,10 +68,7 @@ export default defineComponent({
         if(this.query != '' && this.line != '' && this.direction != ''){
           for(let i = 0; i < this.stopInfo.data.monitors.length;i++){
             if(this.stopInfo.data.monitors[i].lines[0].name == this.line){          
-              console.log(this.stopInfo.data.monitors[i].lines[0].towards.toUpperCase())
-
-              if(this.stopInfo.data.monitors[i].lines[0].towards.toUpperCase().trim() == this.direction.toUpperCase().trim()){
-                console.log('Testing')
+             if(this.stopInfo.data.monitors[i].lines[0].towards.toUpperCase().trim() == this.direction.toUpperCase().trim()){  
                 this.type = this.stopInfo.data.monitors[i].lines[0].type
                 this.$emit('state',this.type)
                 this.time = this.stopInfo.data.monitors[i].lines[0].departures.departure[0].departureTime.countdown

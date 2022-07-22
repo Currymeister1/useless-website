@@ -5,7 +5,7 @@
     class= "search" 
     type="text" 
     placeholder="Search..."
-    @keypress="sendWord"
+    @keyup="sendWord"
     />
 </template>
 
@@ -21,9 +21,7 @@ export default {
     },
     methods: {
         sendWord(e) {
-            if(e.key == "Enter"){
-                this.$emit('result',this.query);
-            }
+            this.$emit('result',this.query);
         }
     }
 }
