@@ -18,6 +18,10 @@
     <div class="additional-info"  v-if="weather.weather">
         <h1>{{weather.weather[0].main}}</h1> 
     </div>
+
+    <div class="error" v-if="error">
+        <ErrorDisplay :msg="error"/>
+    </div>
   </div>
 
 
@@ -26,7 +30,9 @@
 <script lang="ts">
 import SearchBar from '../components/SearchBar.vue';
 import NumberDisplay from '../components/NumberDisplay.vue';
-import { defineComponent } from 'vue'; 
+import { defineComponent } from 'vue';
+import ErrorDisplay from '../components/ErrorDisplay.vue';
+
 
 export default defineComponent ({
     name: 'WeatherView',
@@ -38,32 +44,40 @@ export default defineComponent ({
           weather: {} as any,
           query: '' as string,
           background: 'clear' as string,
-          word: 'hello'
+          word: 'hello',
+          error: ''
         }
     },
     components:{
-      SearchBar,
-      NumberDisplay
-    },
+    SearchBar,
+    NumberDisplay,
+    ErrorDisplay
+},
 
     methods:{
+      displayError(){
+        this.error = this.weather.message
+      },
+
       setQuery(q:string){
         this.query = q;
-        this.weather = this.getWeather().then(this.setWeather)
-        
+        this.weather = this.getWeather().then(this.setWeather)  
       },
 
       async setWeather(values:any){
-         this.weather = values
-         this.setBackground();
+         this.weather = values;
+          if(this.weather.cod == '404'){
+          this.displayError();
+        }
+        else{
+            this.setBackground();
+            this.error = '';
+        }
+
+        
       },
       async getWeather(){
             const fetched = await fetch(`${this.BASE_URL}weather?q=${this.query}&APPID=${this.API_KEY}&units=metric`); 
-            if(fetched.status == 404){
-                this.weather = {}
-                return;
-
-            } 
             return await fetched.json()
       },
 
@@ -95,14 +109,6 @@ export default defineComponent ({
 
 <style>
 
-.weather{
-  color: rgb(31, 29, 29);
-  position: relative;
-  top: 40%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%); 
-}
 
 
 .name{
