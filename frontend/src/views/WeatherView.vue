@@ -19,9 +19,7 @@
         <h1>{{weather.weather[0].main}}</h1> 
     </div>
 
-    <div class="error" v-if="error">
-        <ErrorDisplay :msg="error"/>
-    </div>
+   
   </div>
 
 
@@ -31,7 +29,6 @@
 import SearchBar from '../components/SearchBar.vue';
 import NumberDisplay from '../components/NumberDisplay.vue';
 import { defineComponent } from 'vue';
-import ErrorDisplay from '../components/ErrorDisplay.vue';
 
 
 export default defineComponent ({
@@ -51,7 +48,7 @@ export default defineComponent ({
     components:{
     SearchBar,
     NumberDisplay,
-    ErrorDisplay
+    
 },
 
     methods:{
